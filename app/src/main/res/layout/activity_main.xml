@@ -9,28 +9,32 @@
     tools:context=".Activity.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        app:elevation="10dp"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/appBar"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.appbar.MaterialToolbar
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:navigationIcon="@drawable/baseline_menu_24"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:menu="@menu/top_menu"
-    />
+            app:navigationIcon="@drawable/baseline_menu_24" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBar">
-
-
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
 
 
         <LinearLayout
@@ -40,44 +44,45 @@
 
             <TextView
                 android:id="@+id/blas"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Blas, blas"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <HorizontalScrollView
-                android:scrollbars="none"
-                android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                app:layout_constraintTop_toBottomOf="@+id/blas"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@+id/blas">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <com.google.android.material.chip.ChipGroup
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Bag"
-                            />
+                            android:text="Bag" />
+
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="B sadfsdfdsfdfag"
-                            />
+                            android:text="B sadfsdfdsfdfag" />
+
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="B dfsagsdf f as"
-                            />
+                            android:text="B dfsagsdf f as" />
+
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Bag dsfdaff"
-                            />
+                            android:text="Bag dsfdaff" />
                     </com.google.android.material.chip.ChipGroup>
                 </LinearLayout>
             </HorizontalScrollView>
@@ -171,7 +176,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"
+                    android:text="Categories"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constr" />
 
@@ -181,7 +187,7 @@
                     android:layout_height="match_parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView3" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -189,7 +195,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"
+                    android:text="Products"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/res1" />
 
@@ -197,24 +205,31 @@
                     android:id="@+id/res2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_gravity="bottom"
 
             app:backgroundTint="#2196F3"
@@ -264,6 +279,7 @@
                         android:layout_height="wrap_content"
                         android:text="TextView" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
