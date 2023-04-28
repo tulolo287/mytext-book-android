@@ -3,6 +3,7 @@ package com.example.mytextbook.helpers
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
+
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.BitmapFactory
@@ -21,16 +22,19 @@ import kotlin.collections.ArrayList
 class TinyDB(appContext: Context?) {
     private val preferences: SharedPreferences
     private var DEFAULT_APP_IMAGEDATA_DIRECTORY: String? = null
+    var savedImagePath = ""
 
     /**
      * Returns the String path of the last saved image
      * @return string path of the last saved image
      */
-    var savedImagePath = ""
-        private set
+
+
 
     init {
         preferences = PreferenceManager.getDefaultSharedPreferences(appContext)
+                //Configuration.getInstance().load(this, androidx.preference.PreferenceManager.getDefaultSharedPreferences(this))
+           // PreferenceManager.getDefaultSharedPreferences(appContext)
     }
 
     /**
@@ -230,13 +234,12 @@ class TinyDB(appContext: Context?) {
      * @return ArrayList of String
      */
     fun getListString(key: String?): ArrayList<String> {
+        var st: String? = preferences.getString(key, "")
+        var spl: ArrayList<String> = TextUtils.split(st, "‚‗‚").toCollection(ArrayList())
+        //var list: ArrayList<String> = listOf(spl)
 
-        return listOf(
-            TextUtils.split(
-                preferences.getString(key, ""),
-                "‚‗‚"
-            )
-        ) as ArrayList<String>
+
+        return spl
     }
 
     /**
@@ -270,7 +273,7 @@ class TinyDB(appContext: Context?) {
         val gson = Gson()
         val objStrings = getListString(key)
         val playerList: ArrayList<Product> = ArrayList<Product>()
-        for (jObjString in objStrings) {
+        for (jObjString: String in objStrings) {
             val player: Product = gson.fromJson(jObjString, Product::class.java)
             playerList.add(player)
         }
@@ -373,7 +376,7 @@ class TinyDB(appContext: Context?) {
      * @param stringList ArrayList of String to be added
      */
     fun putListString(key: String?, stringList: ArrayList<String?>) {
-        checkForNullKey(key)
+       // checkForNullKey(key)
         val myStringList: Array<String> = stringList.toArray(arrayOfNulls(stringList.size))
         preferences.edit().putString(key, TextUtils.join("‚‗‚", myStringList)).apply()
     }
@@ -418,7 +421,7 @@ class TinyDB(appContext: Context?) {
     }
 
     fun putListObject(key: String?, playerList: ArrayList<Product>) {
-        checkForNullKey(key)
+       // checkForNullKey(key)
         val gson = Gson()
         val objStrings = ArrayList<String?>()
         for (player in playerList) {

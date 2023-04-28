@@ -46,6 +46,7 @@ class CategoryAdapter(private val context: Context, private val dataSet: Mutable
         }
 
         holder.tv_cardName.text = item.name.toString()
+
         val id = holder.itemView.context.resources.getIdentifier("image1", "drawable", holder.itemView.context.packageName)
         Glide.with(context).load("https://goo.gl/gEgYUd").error(R.drawable.baseline_search_24).into(holder.img_cardImg)
        // holder.img_cardImg.setImageResource(item.imageId)

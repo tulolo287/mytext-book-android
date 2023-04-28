@@ -16,15 +16,24 @@
                 android:id="@+id/productName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:gravity="center"
                 android:textSize="25sp"
                 android:text="TextView" />
 
             <ImageView
                 android:id="@+id/productPhoto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 app:srcCompat="@drawable/image1" />
-
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="Price" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,26 +42,36 @@
 
                 <ImageView
                     android:id="@+id/minusBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/baseline_menu_24" />
+
+                    app:srcCompat="@drawable/outline_arrow_downward_24" />
 
                 <TextView
                     android:id="@+id/tv_qty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/teal_200"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="HOt" />
 
                 <ImageView
                     android:id="@+id/plusBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/baseline_search_24" />
+                    app:srcCompat="@drawable/baseline_arrow_upward_24" />
             </LinearLayout>
+            <TextView
+                android:id="@+id/productDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
+                android:gravity="center"
+                android:textSize="15sp"
+                android:text="Description..." />
             <Button
                 android:id="@+id/btn_addToCart"
                 android:layout_width="match_parent"

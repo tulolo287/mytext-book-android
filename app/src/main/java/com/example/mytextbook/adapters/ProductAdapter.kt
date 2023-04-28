@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.mytextbook.Activity.MainActivity
 import com.example.mytextbook.Activity.ProductDetail
 import com.example.mytextbook.R
 import com.example.mytextbook.model.Product
@@ -38,11 +41,15 @@ val img: ImageView
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
         holder.price.text = item.name
-        holder.price.text = item.price
-        Glide.with(holder.itemView.context).load("https://goo.gl/gEgYUd").into(holder.img)
+        holder.price.text = item.price.toString()
+        val imgId = holder.itemView.context.resources.getIdentifier(item.img, "drawable", holder.itemView.context.packageName)
+        Glide.with(holder.itemView.context).load(imgId).into(holder.img)
 
         holder.img.setOnClickListener(View.OnClickListener {
-            holder.itemView.context.startActivity(Intent(holder.itemView.context, ProductDetail::class.java))
+            //Toast.makeText(holder.itemView.context, "KJJLJ", Toast.LENGTH_LONG).show()
+            startActivity(holder.itemView.context, Intent(holder.itemView.context, ProductDetail::class.java).apply {
+                putExtra("product", item)
+            }, null)
         })
 
     }
